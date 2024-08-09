@@ -40,6 +40,8 @@ function AuthProvider({ children }) {
     setData({});
   }
 
+
+
   useEffect(() => {
     const token = localStorage.getItem("@token")
 
