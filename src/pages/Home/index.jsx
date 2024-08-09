@@ -1,13 +1,25 @@
-import { FiTag, FiEdit, FiClipboard } from 'react-icons/fi';
-import { Container } from "./styles"
+import { FiTag, FiEdit, FiClipboard, FiLogOut } from 'react-icons/fi';
+import { Container, Content } from "./styles"
 
-import { Header } from "../../components/Header"
 import { Feature } from "../../components/Feature"
+import { useAuth } from '../../hooks/auth';
 
 export function Home() {
+  const { signOut } = useAuth();
+
+  function handleLogout() {
+    signOut();
+  }
+
+
   return (
     <Container>
-      <Header />
+      <Content>
+        <h1>Menu</h1>
+        <button type="button" onClick={handleLogout} >
+          <FiLogOut size={24} />
+        </button>
+      </Content>
       <main>
         <Feature title="Produtos" icon={FiTag} to="/product" />
         <Feature title="Criar" icon={FiClipboard} to="/new-product" />
