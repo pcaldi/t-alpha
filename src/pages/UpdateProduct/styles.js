@@ -27,7 +27,7 @@ export const Header = styled.header`
       width: 150px;
     }
     > button:nth-child(2) {
-      background-color: red;
+      background-color: ${({ theme }) => theme.COLORS.RED};
     }
 
   }
