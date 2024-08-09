@@ -21,10 +21,15 @@ export const Header = styled.header`
 
   > nav {
     display: flex;
+    gap: 16px;
 
     > button {
       width: 150px;
     }
+    > button:nth-child(2) {
+      background-color: red;
+    }
+
   }
 `;
 
