@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
 
 
   return (
-    <AuthContext.Provider value={{ signIn, token: data.token }} >
+    <AuthContext.Provider value={{ signIn, token: data }} >
       {children}
     </AuthContext.Provider>
   )

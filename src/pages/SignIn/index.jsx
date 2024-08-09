@@ -20,8 +20,9 @@ export function SignIn() {
 
   const { signIn } = useAuth()
 
-  function handleSignIn() {
-    signIn({ taxNumber, password })
+  async function handleSignIn() {
+    await signIn({ taxNumber, password })
+    console.log(signIn)
   }
 
   return (
