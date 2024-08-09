@@ -130,8 +130,6 @@ export function UpdateProduct() {
             />
           </Section>
 
-
-
           <Button title="Salvar" onClick={handleEditProduct} />
 
         </Form>
