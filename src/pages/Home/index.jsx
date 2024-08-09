@@ -1,4 +1,4 @@
-import { FiTag, FiEdit, FiClipboard, FiLogOut } from 'react-icons/fi';
+import { FiTag, FiClipboard, FiLogOut } from 'react-icons/fi';
 import { Container, Content } from "./styles"
 
 import { Feature } from "../../components/Feature"
@@ -22,8 +22,8 @@ export function Home() {
       </Content>
       <main>
         <Feature title="Produtos" icon={FiTag} to="/product" />
-        <Feature title="Criar" icon={FiClipboard} to="/new-product" />
-        <Feature title="Editar" icon={FiEdit} to="/update-product/:id" />
+        <Feature title="Cadastrar" icon={FiClipboard} to="/new-product" />
+
       </main>
     </Container>
   )
