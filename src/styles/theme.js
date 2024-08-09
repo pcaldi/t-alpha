@@ -6,6 +6,7 @@ export default {
     GRAY_600: "#5A595E",
 
     WHITE: "#F4EDE8",
+    RED: "#FF2C2C",
 
     BRAND_500: "#2833ff",
     BRAND_600: "#98e1fc",
