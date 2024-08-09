@@ -1,12 +1,13 @@
+import { useState, useEffect } from "react"
+import { Item } from "../../components/Item"
+import { Button } from "../../components/Button"
 
-import { Item } from "../../components/Item";
-import { Button } from "../../components/Button";
-
-import { Container, Header, Content } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { Container, Header, Content } from "./styles"
+import { useNavigate } from "react-router-dom"
+import { api } from "../../services/api"
 
 export function Product() {
-
+  const [products, setProducts] = useState([])
 
   const navigate = useNavigate()
 
@@ -14,6 +15,14 @@ export function Product() {
     navigate(-1)
   }
 
+  useEffect(() => {
+    async function fetchProduct() {
+      const response = await api.get("/api/products/get-all-products")
+      setProducts(response.data.data.products)
+    }
+
+    fetchProduct()
+  }, [])
 
   return (
     <Container>
@@ -25,72 +34,12 @@ export function Product() {
       </Header>
 
       <Content>
-        <Item
-          data={
-            {
-              item: [
-                { id: '1', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '2', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '3', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '4', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '5', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '6', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-        <Item
-          data={
-            {
-              item: [
-                { id: '7', name: "TV", description: 'Colorida', price: '1299.99', stock: '10' }
-              ]
-            }
-          }
-        />
-
-
-
+        {
+          products.length > 0 &&
+          products.map((product) => (
+            <Item key={String(product.id)} data={product} />
+          ))
+        }
 
       </Content>
     </Container>
