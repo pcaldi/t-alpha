@@ -21,6 +21,15 @@ export function UpdateProduct() {
     navigate(-1)
   }
 
+  async function handleRemove() {
+    const confirm = window.confirm("Deseja realmente remover o produto?")
+
+    if (confirm) {
+      await api.delete(`/api/products/delete-product/${params.id}`)
+      navigate(-1)
+    }
+  }
+
   useEffect(() => {
     async function fetchProduct() {
       const response = await api.get(`/api/products/get-one-product/${params.id}`)
@@ -36,7 +45,7 @@ export function UpdateProduct() {
         <h1>Editar</h1>
         <nav>
           <Button title="Voltar" onClick={handleBack} />
-          <Button title="Excluir" onClick={handleBack} />
+          <Button title="Excluir" onClick={handleRemove} />
         </nav>
       </Header>
       {
