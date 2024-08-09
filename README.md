@@ -21,7 +21,7 @@
 
 ## ⭐ Site
 
-A aplicação RocketMovies está disponível para utilização [aqui]().
+A aplicação RocketMovies está disponível para utilização [aqui](https://main--t-alpha.netlify.app/).
 
 ## 🛠️ Funcionalidades
 
