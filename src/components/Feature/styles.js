@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+import { Link } from "react-router-dom";
+
+export const Container = styled(Link)`
   width: 200px;
   height: 200px;
 
@@ -12,6 +14,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  border: 0;
 
 
   > svg {
