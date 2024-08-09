@@ -15,6 +15,10 @@ export function Product() {
     navigate(-1)
   }
 
+  function handleDetails(id) {
+    navigate(`/update-product/${id}`)
+  }
+
   useEffect(() => {
     async function fetchProduct() {
       const response = await api.get("/api/products/get-all-products")
@@ -37,7 +41,11 @@ export function Product() {
         {
           products.length > 0 &&
           products.map((product) => (
-            <Item key={String(product.id)} data={product} />
+            <Item
+              key={String(product.id)}
+              data={product}
+              onClick={() => handleDetails(product.id)}
+            />
           ))
         }
 
