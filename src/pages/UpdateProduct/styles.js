@@ -35,7 +35,7 @@ export const Header = styled.header`
 
 export const Form = styled.form`
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   padding: 32px;
 
   display: flex;

@@ -9,6 +9,7 @@ import { Container, Header, Form } from "./styles";
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
 import { TextArea } from "../../components/TextArea"
+import { Section } from "../../components/Section"
 
 
 export function UpdateProduct() {
@@ -98,25 +99,38 @@ export function UpdateProduct() {
 
         data &&
         <Form>
-          <Input
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
+          <Section title="Produto">
+            <Input
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
 
-          <TextArea
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-          />
+          </Section>
 
-          <Input
-            value={price}
-            onChange={e => setPrice(e.target.value)}
-          />
 
-          <Input
-            value={stock}
-            onChange={e => setStock(e.target.value)}
-          />
+          <Section title="Descrição">
+            <TextArea
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            />
+          </Section>
+
+          <Section title="Preço">
+            <Input
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+          </Section>
+
+
+          <Section title="Estoque">
+            <Input
+              value={stock}
+              onChange={e => setStock(e.target.value)}
+            />
+          </Section>
+
+
 
           <Button title="Salvar" onClick={handleEditProduct} />
 
