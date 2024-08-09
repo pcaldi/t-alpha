@@ -7,7 +7,7 @@ export default {
 
     WHITE: "#F4EDE8",
 
-    BRAND_600: "#2833ff",
-    BRAND_500: "#98e1fc",
+    BRAND_500: "#2833ff",
+    BRAND_600: "#98e1fc",
   }
 };
