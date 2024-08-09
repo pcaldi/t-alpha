@@ -26,6 +26,7 @@ export const Header = styled.header`
     > button {
       width: 150px;
     }
+
     > button:nth-child(2) {
       background-color: ${({ theme }) => theme.COLORS.RED};
     }
