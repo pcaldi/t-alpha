@@ -21,6 +21,12 @@ export function SignIn() {
   const { signIn } = useAuth()
 
   function handleSignIn() {
+
+    if (!taxNumber || !password) {
+      alert("Preencha todos os campos!")
+      return
+    }
+
     signIn({ taxNumber, password })
   }
 
