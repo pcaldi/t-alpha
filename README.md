@@ -4,7 +4,7 @@
 
 ## 📁 Projeto
 
-- plicação front-end que permite a autenticação de usuários e a gestão (CRUD) de produtos. Esta aplicação foi desenvolvida utilizando [ReactJS/React Native/Angular] e está integrada com uma API de back-end fornecida.
+- Aplicação front-end que permite a autenticação de usuários e a gestão (CRUD) de produtos. Esta aplicação foi desenvolvida utilizando ReactJS e está integrada com uma API de back-end fornecida.
 
 ## 📃 Páginas
 
