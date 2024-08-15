@@ -37,10 +37,10 @@ export function NewProduct() {
     }
 
     if (price <= 0 || isNaN(price)) {
-      return "O preço deve ser um número positivo.";
+      return alert("O preço deve ser um número positivo.");
     }
     if (stock < 0 || isNaN(stock)) {
-      return "O estoque deve ser um número positivo.";
+      return alert("O estoque deve ser um número positivo.");
     }
 
 
