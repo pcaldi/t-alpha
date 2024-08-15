@@ -14,7 +14,6 @@ import { Button } from "../../components/Button"
 import { Container, Form } from "./style"
 
 export function SignUp() {
-
   const [name, setName] = useState("")
   const [taxNumber, setTaxNumber] = useState("")
   const [mail, setMail] = useState("")
@@ -23,28 +22,60 @@ export function SignUp() {
 
   const navigate = useNavigate()
 
+  function validateCPF_CNPJ(taxNumber) {
+    const cleanedTaxNumber = taxNumber.replace(/\D/g, '')
+    if (cleanedTaxNumber.length === 11 || cleanedTaxNumber.length === 14) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function validateEmail(email) {
+    const regexMail = /\S+@\S+\.\S+/
+    return regexMail.test(email)
+  }
+
+  function validatePhone(phone) {
+    const cleanedPhone = phone.replace(/\D/g, '')
+    return cleanedPhone.length >= 10 && cleanedPhone.length <= 11
+  }
 
   function handleSingUp() {
-    //console.log(name, taxNumber, email, phone, password)
-
     if (!name || !taxNumber || !mail || !phone || !password) {
       alert("Preencha todos os campos!")
       return
     }
+
+    if (!validateCPF_CNPJ(taxNumber)) {
+      return alert("CPF ou CNPJ inválido!")
+    }
+
+    if (!validateEmail(mail)) {
+      return alert("E-mail inválido!")
+    }
+
+    if (!validatePhone(phone)) {
+      return alert("Telefone inválido!")
+    }
+
+    if (password.length < 6) {
+      return alert("A senha deve ter pelo menos 6 caracteres.")
+    }
+
     api
       .post("/api/auth/register", { name, taxNumber, mail, phone, password })
       .then(() => {
         alert("Conta criada com sucesso! Faça o login.")
         navigate("/")
-      }).catch(error => {
+      })
+      .catch(error => {
         if (error.response) {
           alert(error.response.data.message)
         } else {
           alert("Erro ao cadastrar a conta. Tente novamente.")
         }
-
       })
-
   }
 
   return (
@@ -68,14 +99,12 @@ export function SignUp() {
           onChange={e => setTaxNumber(e.target.value)}
         />
 
-
         <Input
           placeholder="E-mail"
           type="text"
           icon={FiMail}
           onChange={e => setMail(e.target.value)}
         />
-
 
         <Input
           placeholder="Telefone"
@@ -91,16 +120,13 @@ export function SignUp() {
           onChange={e => setPassword(e.target.value)}
         />
 
-
         <Button title="Cadastrar" onClick={handleSingUp} />
 
         <Link to="/">
           <FiArrowLeft />
           Já tenho uma conta
         </Link>
-
       </Form>
-
     </Container>
   )
 }
